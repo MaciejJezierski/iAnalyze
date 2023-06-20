@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "DiveMaster_face_of_technical_diver_made_from_geometrical_shapes_01ab57e4-714d-41d0-b941-81287499c117.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
