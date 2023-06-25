@@ -11,13 +11,14 @@ import CoreBluetooth
 class ArduinoConnectionManager: NSObject, ObservableObject {
     
     private var centralManager: CBCentralManager!
+
     private var isScanning: Bool = false
     private var dataCharacteristic: CBCharacteristic?
-    private let targetServiceUUID = CBUUID(string: "19B10000-E8F2-537E-4F6C-D104768A1214")
-    private let targetCharacteristicUUID = CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1214")
+    private let targetServiceUUID = CBUUID(string: "89a2e4f8-76cc-4bdb-81e1-14b585e66844")
+    private let targetCharacteristicUUID = CBUUID(string: "cde86603-7243-49cd-a02e-0fc4c663e4fa")
 
     @Published var receivedValue: Float = 0.0
-    @Published var isConnected: Bool = false
+    @Published var isConnected = false
     @Published var isFailed: Bool = false
     @Published var devices: [CBPeripheral] = []
     var selectedDevice: CBPeripheral?
@@ -31,27 +32,30 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
     func startScanning() {
         if centralManager.state == .poweredOn && !isScanning {
             let options = [CBCentralManagerScanOptionAllowDuplicatesKey: false]
-            centralManager.scanForPeripherals(withServices: nil, options: options)
+            centralManager.scanForPeripherals(withServices: [targetServiceUUID], options: options)
             isScanning = true
             
             // Add a timer to stop scanning after a certain duration
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                self.stopScanning()
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//                centralManager.stopScanning()
+//            }
         } else {
             // Handle the case when Bluetooth is unavailable or already scanning
             // delegate?.didFailToStartBluetooth()
         }
     }
     
-    func stopScanning() {
-        if isScanning {
-            centralManager.stopScan()
-            isScanning = false
-        }
-    }
-    
+//    func stopScanning() {
+//        if isScanning {
+//            centralManager.stopScan()
+//            isScanning = false
+//        }
+//    }
+//
+
     func connect(to peripheral: CBPeripheral) {
+        centralManager.stopScan()
+        peripheral.delegate = self
         centralManager.connect(peripheral, options: nil)
     }
     
@@ -64,6 +68,7 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
                let service = selectedDevice.services?.first(where: { $0.uuid == targetServiceUUID }),
                let characteristic = service.characteristics?.first(where: { $0.uuid == targetCharacteristicUUID }) else {
              // Handle the case when the selected device, service, or characteristic is not available
+             print(targetServiceUUID)
              print("cos sie znowu zjebalo")
              print(isConnected)
               return
@@ -79,31 +84,56 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
          
          let floatValue = data.withUnsafeBytes { $0.load(as: Float.self) }
          // Use the captured float value as needed
-        print("tu jestem1")
+        print("tu jestem2")
         receivedValue = floatValue
      }
 }
 
-extension ArduinoConnectionManager: CBCentralManagerDelegate {
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        // Handle central manager state updates if needed
+extension ArduinoConnectionManager: CBCentralManagerDelegate, CBPeripheralDelegate, CBPeripheralManagerDelegate{
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        
     }
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        
+    }
+
+
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
                         advertisementData: [String: Any], rssi RSSI: NSNumber) {
+        
         let existingDevice = devices.first { $0.identifier == peripheral.identifier }
         if existingDevice == nil {
             devices.append(peripheral)
         }
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+          guard let services = peripheral.services else {
+              // Handle error or no services found
+              return
+          }
+          
+          for service in services {
+              print("Discovered service: \(service)")
+              peripheral.discoverCharacteristics(nil, for: service) // Passing nil will discover all characteristics
+          }
+      }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         // Handle successful connection
         isConnected = true
         selectedDevice = peripheral
+        peripheral.delegate = self
+        peripheral.discoverServices([targetServiceUUID])
+        guard let services = peripheral.services?[0] else {
+            print("tu jestem2")
+            return
+        }
+        peripheral.discoverCharacteristics([targetCharacteristicUUID], for: services)
     }
-    
+
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         // Handle failed connection
         isFailed = true

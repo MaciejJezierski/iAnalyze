@@ -11,6 +11,8 @@ import CoreBluetooth
 struct ConnectionView: View {
     @EnvironmentObject private var bluetoothManager: ArduinoConnectionManager
     @State private var isConnecting = false
+    @State private var NotYetSearched = true
+
     
     var onConnect: (Bool) -> Void
 
@@ -18,6 +20,7 @@ struct ConnectionView: View {
         VStack {
             Button(action: {
                 bluetoothManager.startScanning()
+                NotYetSearched = false
             }) {
                 Text("Scan for Devices")
                     .padding()
@@ -26,21 +29,20 @@ struct ConnectionView: View {
                     .cornerRadius(8)
             }
             .padding()
-            
-            if bluetoothManager.devices.isEmpty {
-                Text("No devices found")
-            } else {
-                List(bluetoothManager.devices, id: \.self) { device in
-                    Button(action: {
-                        bluetoothManager.connect(to: device)
-                        if bluetoothManager.isConnected { isConnecting = true }
-    
-                    }) {
-                        Text(device.name ?? "Unknown Device")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
+            if !NotYetSearched{
+                if bluetoothManager.devices.isEmpty {
+                    Text("No devices found \(String(bluetoothManager.devices.isEmpty))")
+                } else {
+                    List(bluetoothManager.devices, id: \.self) { device in
+                        Button(action: {
+                            if(!bluetoothManager.isConnected){bluetoothManager.connect(to: device)}
+                        }) {
+                            Text(device.name ?? "Unknown Device")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
                     }
                 }
             }
@@ -48,10 +50,11 @@ struct ConnectionView: View {
         .padding()
         .alert(isPresented: $bluetoothManager.isConnected) {
             if bluetoothManager.isConnected {
-                onConnect(true)
                 return Alert(
                     title: Text("Connected to \(bluetoothManager.selectedDevice?.name ?? "Unknown Device")"),
-                    dismissButton: .cancel()
+                    dismissButton: Alert.Button.default(
+                        Text("Great!"), action: { onConnect(true) }
+                    )
                 )
             } else {
                 return Alert(title: Text("Connection Error"), message: Text("Failed to connect to the device."))
