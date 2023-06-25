@@ -24,5 +24,13 @@ struct AnalizerMainView: View {
                 .environmentObject(bluetoothManager)
             }
         }
+        .alert(isPresented: $bluetoothManager.isServiceFound) {
+                return Alert(
+                    title: Text("Service found"),
+                    dismissButton: Alert.Button.default(
+                        Text("Great!")
+                    )
+                )
+        }
     }
 }

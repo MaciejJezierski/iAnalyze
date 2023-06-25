@@ -19,6 +19,7 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
 
     @Published var receivedValue: Float = 0.0
     @Published var isConnected = false
+    @Published var isServiceFound = false
     @Published var isFailed: Bool = false
     @Published var devices: [CBPeripheral] = []
     var selectedDevice: CBPeripheral?
@@ -32,7 +33,9 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
     func startScanning() {
         if centralManager.state == .poweredOn && !isScanning {
             let options = [CBCentralManagerScanOptionAllowDuplicatesKey: false]
-            centralManager.scanForPeripherals(withServices: [targetServiceUUID], options: options)
+//            centralManager.scanForPeripherals(withServices: [targetServiceUUID], options: options)
+            centralManager.scanForPeripherals(withServices: nil, options: options)
+
             isScanning = true
             
             // Add a timer to stop scanning after a certain duration
@@ -110,6 +113,7 @@ extension ArduinoConnectionManager: CBCentralManagerDelegate, CBPeripheralDelega
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        isServiceFound = true
           guard let services = peripheral.services else {
               // Handle error or no services found
               return
@@ -126,12 +130,12 @@ extension ArduinoConnectionManager: CBCentralManagerDelegate, CBPeripheralDelega
         isConnected = true
         selectedDevice = peripheral
         peripheral.delegate = self
-        peripheral.discoverServices([targetServiceUUID])
+        peripheral.discoverServices(nil)
         guard let services = peripheral.services?[0] else {
             print("tu jestem2")
             return
         }
-        peripheral.discoverCharacteristics([targetCharacteristicUUID], for: services)
+//        peripheral.discoverCharacteristics([targetCharacteristicUUID], for: services)
     }
 
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
