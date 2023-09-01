@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardsView: View {
     @State var expanded: Bool = false
-    @State var selectedCard: CardBack?
+    @State var selectedCard: Card?
     @State var showDetailCard: Bool = false
     @Namespace var animation
     
@@ -42,19 +42,19 @@ struct CardsView: View {
                     .padding(.bottom, 10)
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
-                        ForEach(cardBacks) { CardBack in
+                        ForEach(cards) { card in
                             Group {
-                                if selectedCard?.id == CardBack.id && showDetailCard {
-                                    setUpCardView(CardBack: CardBack)
+                                if selectedCard?.id == card.id && showDetailCard {
+                                    setUpCardView(card: card)
                                         .opacity(0)
                                 } else {
-                                    setUpCardView(CardBack: CardBack)
-                                        .matchedGeometryEffect(id: CardBack.id, in: animation)
+                                    setUpCardView(card: card)
+                                        .matchedGeometryEffect(id: card.id, in: animation)
                                 }
                             }
                             .onTapGesture {
                                 withAnimation(.easeInOut(duration: 0.35)) {
-                                    selectedCard = CardBack
+                                    selectedCard = card
                                     showDetailCard = true
                                 }
                             }
@@ -78,7 +78,7 @@ struct CardsView: View {
                         expanded = true
                     }
                 } label: {
-                    Image(systemName: "plus")
+                    Image(systemName: "star")
                         .font(.title)
                         .foregroundColor(.white)
                         .padding(20)
@@ -90,32 +90,33 @@ struct CardsView: View {
                 .frame(height: expanded ? 0 : nil)
                 .padding(.bottom, expanded ? 0 : 30)
             }
-//            .padding([.horizontal, .top])
+            .padding([.horizontal, .top])
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .overlay {
-//                if let CardBack = selectedCard, showDetailCard {
-//                    DetailView(selectedCard: CardBack,
-//                               showDetails: $showDetailCard,
-//                               animation: animation)
-//                }
-//            }
+            .overlay {
+                if let card = selectedCard, showDetailCard {
+                    DetailView(selectedCard: card,
+                               showDetails: $showDetailCard,
+                               animation: animation)
+                    
+                }
+            }
         }
     }
     
     @ViewBuilder
-    func setUpCardView(CardBack: CardBack) -> some View {
+    func setUpCardView(card: Card) -> some View {
         GeometryReader { proxy in
             let rect = proxy.frame(in: .named("scroll"))
-            let offset = CGFloat(getIndexOf(CardBack: CardBack) * (expanded ? 10 : 70))
-                CardBackView(CardBack: CardBack)
+            let offset = CGFloat(getIndexOf(card: card) * (expanded ? 10 : 70))
+                CardBackView(card: card)
                 .offset(y: expanded ? offset : -rect.minY + offset)
         }
         .frame(height: 210)
     }
     
-    func getIndexOf(CardBack: CardBack) -> Int {
-        return cardBacks.firstIndex { currentCard in
-            return currentCard.id == CardBack.id
+    func getIndexOf(card: Card) -> Int {
+        return cards.firstIndex { currentCard in
+            return currentCard.id == card.id
         } ?? 0
     }
 }

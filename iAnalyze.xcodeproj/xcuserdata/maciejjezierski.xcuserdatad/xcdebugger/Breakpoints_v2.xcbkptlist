@@ -7,292 +7,56 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E84E213C-8106-4F8C-8F81-BCEDF9672E69"
+            uuid = "B9365758-0EBE-45B1-B1AE-A951EEFCEB8D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "peripheral(_:didDiscoverCharacteristicsFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC89AA78-8EEC-4C99-B250-39973322EF55"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "peripheral(_:didDiscoverServices:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E84E213C-8106-4F8C-8F81-BCEDF9672E69 - 1b932d8b0a74dc9d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "416">
-               </Location>
-               <Location
-                  uuid = "E84E213C-8106-4F8C-8F81-BCEDF9672E69 - 30548af6d97db289"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.peripheral(_: __C.CBPeripheral, didDiscoverServices: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "E84E213C-8106-4F8C-8F81-BCEDF9672E69 - 30548af6d97db26c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.peripheral(_: __C.CBPeripheral, didDiscoverServices: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "88">
-               </Location>
-            </Locations>
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "ArduinoConnectionManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D65B5E8D-A531-462D-BC2A-31FC05BB1C3E"
+            uuid = "BD8C2C46-A06F-49D1-B27B-D0EC4157B424"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "centralManager(_:didConnect:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "captureFloatData(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8D016752-CE10-4D9A-AE97-63AD3B00EBCF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "captureFloatData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "56B230A8-31EE-4CCF-85B4-A04599FC97FF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "captureFloatData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "56B230A8-31EE-4CCF-85B4-A04599FC97FF - 1a5fbd4370933e0f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "644">
-               </Location>
-               <Location
-                  uuid = "56B230A8-31EE-4CCF-85B4-A04599FC97FF - 1a5fbd4370933e0f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "1164">
-               </Location>
-               <Location
-                  uuid = "56B230A8-31EE-4CCF-85B4-A04599FC97FF - 4fc8b7892cf92628"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.CBCharacteristic) -&gt; Swift.Bool in iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "64F57EDD-72B5-4E87-A7A4-D1D65FC002DD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "captureFloatData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "64F57EDD-72B5-4E87-A7A4-D1D65FC002DD - 1a5fbd4370933e2e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "180">
-               </Location>
-               <Location
-                  uuid = "64F57EDD-72B5-4E87-A7A4-D1D65FC002DD - 1a5fbd4370933e2e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "612">
-               </Location>
-               <Location
-                  uuid = "64F57EDD-72B5-4E87-A7A4-D1D65FC002DD - 5267457cc80414bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.CBService) -&gt; Swift.Bool in iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "648FC46C-0A74-40F5-8694-11B91F58F0A6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "centralManager(_:didConnect:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "648FC46C-0A74-40F5-8694-11B91F58F0A6 - 6418dd81d9212f0b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didConnect: __C.CBPeripheral) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "140">
-               </Location>
-               <Location
-                  uuid = "648FC46C-0A74-40F5-8694-11B91F58F0A6 - 6418dd81d9212f0b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didConnect: __C.CBPeripheral) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "272">
-               </Location>
-               <Location
-                  uuid = "648FC46C-0A74-40F5-8694-11B91F58F0A6 - 6418dd81d9212f45"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didConnect: __C.CBPeripheral) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "200">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0CE8DFDB-B2CA-4BC2-9917-0AD4C4CD48F0"
-            shouldBeEnabled = "No"
+            uuid = "92A79002-C7A5-4A2F-9F53-670B1B6D1CE2"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
@@ -300,245 +64,24 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "captureFloatData()"
+            landmarkName = "startAnalysis(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1CEE73FE-2116-49C2-AC9E-03D10B1083EC"
+            uuid = "319A0CD6-A7B1-488C-B54F-8704485F493D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
+            filePath = "iAnalyze/Models/CardBackModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "captureFloatData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "41CF3583-8C42-4AAF-9C56-6B236EB93AEA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "captureFloatData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "41CF3583-8C42-4AAF-9C56-6B236EB93AEA - 1a5fbd4370933e4d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  uuid = "41CF3583-8C42-4AAF-9C56-6B236EB93AEA - 1a5fbd4370933e4d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.captureFloatData() -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "160">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D8A6B7D5-4720-4B97-8CFA-C76B5E6B40EB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "peripheral(_:didDiscoverServices:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D8A6B7D5-4720-4B97-8CFA-C76B5E6B40EB - 1b932d8b0a74dcfc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "436">
-               </Location>
-               <Location
-                  uuid = "D8A6B7D5-4720-4B97-8CFA-C76B5E6B40EB - 30548af6d97db289"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.peripheral(_: __C.CBPeripheral, didDiscoverServices: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "D8A6B7D5-4720-4B97-8CFA-C76B5E6B40EB - 30548af6d97db289"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.peripheral(_: __C.CBPeripheral, didDiscoverServices: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "D8A6B7D5-4720-4B97-8CFA-C76B5E6B40EB - 30548af6d97db20d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.peripheral(_: __C.CBPeripheral, didDiscoverServices: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "D8A6B7D5-4720-4B97-8CFA-C76B5E6B40EB - 30548af6d97db20d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.peripheral(_: __C.CBPeripheral, didDiscoverServices: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "192">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A4B4AACA-8A03-4C5B-9354-D826D43F1A88"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A4B4AACA-8A03-4C5B-9354-D826D43F1A88 - 1b932d8b0a74ddaa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  uuid = "A4B4AACA-8A03-4C5B-9354-D826D43F1A88 - 7e8924a8e52146bc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.CBPeripheral) -&gt; Swift.Bool in iAnalyze.ArduinoConnectionManager.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
-                  moduleName = "iAnalyze"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maciejjezierski/Desktop/iAnalyze/iAnalyze/iAnalyze/Modules/ArduinoConnectionManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "180">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F64C64F5-7054-4E45-9C0A-214D543B4556"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Modules/ArduinoConnectionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "peripheral(_:didDiscoverServices:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D248AAA8-1C2A-470A-9588-4D5326C08C07"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iAnalyze/Views/Analyzer/ConnectionView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "CardBack"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -18,8 +18,10 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
     private let targetCharacteristicUUID = CBUUID(string: "cde86603-7243-49cd-a02e-0fc4c663e4fa")
 
     @Published var receivedValue: Float = 0.0
+    @Published var triggerValue: Float = 0.0
     @Published var isConnected = false
     @Published var isServiceFound = false
+    @Published var isCharacteristicFound = false
     @Published var isFailed: Bool = false
     @Published var devices: [CBPeripheral] = []
     var selectedDevice: CBPeripheral?
@@ -33,28 +35,10 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
     func startScanning() {
         if centralManager.state == .poweredOn && !isScanning {
             let options = [CBCentralManagerScanOptionAllowDuplicatesKey: false]
-//            centralManager.scanForPeripherals(withServices: [targetServiceUUID], options: options)
             centralManager.scanForPeripherals(withServices: nil, options: options)
-
             isScanning = true
-            
-            // Add a timer to stop scanning after a certain duration
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//                centralManager.stopScanning()
-//            }
-        } else {
-            // Handle the case when Bluetooth is unavailable or already scanning
-            // delegate?.didFailToStartBluetooth()
         }
     }
-    
-//    func stopScanning() {
-//        if isScanning {
-//            centralManager.stopScan()
-//            isScanning = false
-//        }
-//    }
-//
 
     func connect(to peripheral: CBPeripheral) {
         centralManager.stopScan()
@@ -66,43 +50,40 @@ class ArduinoConnectionManager: NSObject, ObservableObject {
 
     }
 
-    func captureFloatData() {
-         guard let selectedDevice = selectedDevice,
-               let service = selectedDevice.services?.first(where: { $0.uuid == targetServiceUUID }),
+    func captureFloatData(from peripheral: CBPeripheral) {
+        peripheral.delegate = self
+         guard let service = peripheral.services?.first(where: { $0.uuid == targetServiceUUID }),
                let characteristic = service.characteristics?.first(where: { $0.uuid == targetCharacteristicUUID }) else {
-             // Handle the case when the selected device, service, or characteristic is not available
-             print(targetServiceUUID)
-             print("cos sie znowu zjebalo")
-             print(isConnected)
-              return
-         }
+                    print("Couldn't find service/characteristic")
+                    return
+                }
          
-         selectedDevice.readValue(for: characteristic)
+         peripheral.readValue(for: characteristic)
          
          guard let data = characteristic.value else {
-             print("tu jestem1")
-             // Handle the case when no data is available
              return
          }
-         
-         let floatValue = data.withUnsafeBytes { $0.load(as: Float.self) }
-         // Use the captured float value as needed
-        print("tu jestem2")
-        receivedValue = floatValue
+        receivedValue = data.withUnsafeBytes { $0.load(as: Float.self) }
+     }
+    
+    func startAnalysis(from peripheral: CBPeripheral) {
+        peripheral.delegate = self
+         guard let service = peripheral.services?.first(where: { $0.uuid == targetServiceUUID }),
+               let characteristic = service.characteristics?.first(where: { $0.uuid == targetCharacteristicUUID }) else {
+                    print("Couldn't find service/characteristic")
+                    return
+                }
+        
+        let triggerData = withUnsafeBytes(of: &triggerValue) { Data($0) }
+        peripheral.writeValue(triggerData, for: characteristic, type: .withResponse)
      }
 }
 
+
 extension ArduinoConnectionManager: CBCentralManagerDelegate, CBPeripheralDelegate, CBPeripheralManagerDelegate{
-    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        
-    }
     
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        
-    }
-
-
-    
+    //------------------------------------------------------------------------------------------------------------------------------------
+    //DISCOVERING
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
                         advertisementData: [String: Any], rssi RSSI: NSNumber) {
         
@@ -111,35 +92,59 @@ extension ArduinoConnectionManager: CBCentralManagerDelegate, CBPeripheralDelega
             devices.append(peripheral)
         }
     }
-    
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        isServiceFound = true
           guard let services = peripheral.services else {
               // Handle error or no services found
               return
           }
           
           for service in services {
+              isServiceFound = true
               print("Discovered service: \(service)")
-              peripheral.discoverCharacteristics(nil, for: service) // Passing nil will discover all characteristics
+              selectedDevice?.discoverCharacteristics([targetCharacteristicUUID], for: service) // Passing nil will discover all characteristics
           }
       }
     
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        isCharacteristicFound = true
+      }
+    
+    
+    //------------------------------------------------------------------------------------------------------------------------------------
+    //CONNECTION
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         // Handle successful connection
         isConnected = true
         selectedDevice = peripheral
-        peripheral.delegate = self
-        peripheral.discoverServices(nil)
-        guard let services = peripheral.services?[0] else {
-            print("tu jestem2")
-            return
-        }
-//        peripheral.discoverCharacteristics([targetCharacteristicUUID], for: services)
+        selectedDevice?.delegate = self
+        selectedDevice?.discoverServices([targetServiceUUID])
     }
 
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         // Handle failed connection
         isFailed = true
+    }
+    //------------------------------------------------------------------------------------------------------------------------------------
+    //REST
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        
+        peripheral.readValue(for: characteristic)
+        guard let data = characteristic.value else {
+            return
+        }
+       receivedValue = data.withUnsafeBytes { $0.load(as: Float.self) }
+                
+        }
+    
+    //------------------------------------------------------------------------------------------------------------------------------------
+    //REST
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        
+    }
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        
     }
 }

@@ -50,10 +50,11 @@ struct ConnectionView: View {
         .padding()
         .alert(isPresented: $bluetoothManager.isConnected) {
             if bluetoothManager.isConnected {
+                
                 return Alert(
                     title: Text("Connected to \(bluetoothManager.selectedDevice?.name ?? "Unknown Device")"),
                     dismissButton: Alert.Button.default(
-                        Text("Great!"), action: { onConnect(true) }
+                        Text("Great!"), action: {onConnect(true)}
                     )
                 )
             } else {

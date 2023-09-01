@@ -15,19 +15,23 @@ struct ContentView: View {
                     Label("Analyzer", systemImage: "antenna.radiowaves.left.and.right")
                 }
             
-//            PlannerView()
-//                .tabItem {
-//                    Label("Planner", systemImage: "pencil")
-//                }
+            PlannerView()
+                .tabItem {
+                    Label("Calculators", systemImage: "pencil")
+                }
             
             CardsView()
                 .tabItem {
                     Label("Certificates", systemImage: "touchid")
                 }
-            MeView()
-                .tabItem {
-                    Label("Me", systemImage: "person.crop.square")
-                }
+//            CardFrontView(card: Card(backImage:"TDISDI/1", frontImage: "cave"))
+//                .tabItem {
+//                    Label("Me", systemImage: "person.crop.square")
+//                }
+//            CardBackView(CardBack: CardBack(image: "TDISDI/1"))
+//                .tabItem {
+//                    Label("Me", systemImage: "person.crop.square")
+//                }
         }
     }
 }

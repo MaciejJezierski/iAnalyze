@@ -6,50 +6,57 @@
 //
 
 import SwiftUI
+import VisionKit
 
 struct CardFrontView: View {
-    var CardFront: CardFront
+    @State private var scannedImage: UIImage?
+    @State private var isShowingScanner = false
+    var card: Card
+
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: 5) {
-                    
-                    
-                    HStack(alignment: .bottom, spacing: 5) {
-                        Text(CardFront.fed)
-                            .font(.title3)
-                            .foregroundColor(.white)
-                        
-                        VStack(alignment: .center, spacing: 5) {
-                            Text("Validity")
-                                .font(.caption)
-                                .foregroundColor(.white)
-                            Text(CardFront.cert)
-                                .font(.callout)
-                                .foregroundColor(.white)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.leading, .trailing], 30)
-                    
-                }
-                .frame(maxWidth: .infinity, minHeight: 150)
-                .background(.green.opacity(0.2))
-                
+        ZStack(alignment: .top) {
+            if let image = scannedImage {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(15)
+                    .padding([.top], 30)
+                    .frame(maxWidth: .infinity)
+            } else {
+                Image(card.frontImage)
+                    .resizable()
+                     .aspectRatio(contentMode: .fit)
+                     .cornerRadius(15)
+                     .padding([.top], 30)
+                     .frame(maxWidth: .infinity)
             }
-            .background(.green.opacity(0.2))
-            .cornerRadius(25)
+            
+            VStack {
+                Spacer()
+                
+                Button(action: {
+                    isShowingScanner = true
+                }) {
+                    Text("Change")
+                        .frame(width: 130, height: 130)
+                        .foregroundColor(Color.white)
+                        .background(Color.green)
+                        .clipShape(Circle())
+                }
+                .shadow(radius: 10)
+                .padding(.bottom, 30)
+            }
+        }
+        .sheet(isPresented: $isShowingScanner) {
+            IDScannerView(scannedImage: $scannedImage)
         }
     }
-    
-
 }
 
-struct CardFrontView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardFrontView(CardFront: CardFront(fed: "SDI",
-                                           cert: "OWD"))
-    }
-}
+// IDScannerView code from the previous response
+
+//struct CardFrontView_Previews: View {
+//    var body: some View {
+//        CardFrontView(card: Card(backImage:"TDISDI/1", frontImage: "sample/cave"))
+//    }
+//}

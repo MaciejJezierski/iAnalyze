@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CardBackView: View {
-    var CardBack: CardBack
+    var card: Card
     var body: some View {
         ZStack(alignment: .center) {
                     
-                    Image(CardBack.image)
+            Image(card.backImage)
                         .cornerRadius(15)
                         .padding([.top], 30)
                         .frame(maxWidth: .infinity)
@@ -24,6 +24,6 @@ struct CardBackView: View {
 
 struct CardBackView_Previews: PreviewProvider {
     static var previews: some View {
-        CardBackView(CardBack: CardBack(image: "TDISDI/1"))
+        CardBackView(card: Card(backImage:"TDISDI/1", frontImage: "sample/cave"))
     }
 }
