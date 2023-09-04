@@ -20,18 +20,11 @@ struct ContentView: View {
                     Label("Calculators", systemImage: "pencil")
                 }
             
-            CardsView()
+            CardStackView()
                 .tabItem {
                     Label("Certificates", systemImage: "touchid")
                 }
-//            CardFrontView(card: Card(backImage:"TDISDI/1", frontImage: "cave"))
-//                .tabItem {
-//                    Label("Me", systemImage: "person.crop.square")
-//                }
-//            CardBackView(CardBack: CardBack(image: "TDISDI/1"))
-//                .tabItem {
-//                    Label("Me", systemImage: "person.crop.square")
-//                }
+
         }
     }
 }

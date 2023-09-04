@@ -11,15 +11,13 @@ struct CardBackView: View {
     var card: Card
     var body: some View {
         ZStack(alignment: .center) {
-                    
             Image(card.backImage)
-                        .cornerRadius(15)
-                        .padding([.top], 30)
-                        .frame(maxWidth: .infinity)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(15)
+                .frame(width: 300, height: 200)
         }
     }
-    
-
 }
 
 struct CardBackView_Previews: PreviewProvider {
